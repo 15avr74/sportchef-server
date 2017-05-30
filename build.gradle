@@ -11,7 +11,7 @@ buildscript {
 }
 
 group 'ch.sportchef.server'
-version '1.0-SNAPSHOT'
+version "$sportchefServerVersion"
 
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-allopen'
