@@ -60,7 +60,7 @@ noArg {
 }
 
 war {
-    archiveName 'sportchef-server.war'
+    archiveName 'ROOT.war'
 }
 
 dependencies {
