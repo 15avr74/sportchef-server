@@ -34,6 +34,7 @@ version "$sportchefServerVersion"
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-allopen'
 apply plugin: 'kotlin-noarg'
+apply plugin: 'war'
 
 repositories {
     jcenter()
@@ -49,7 +50,14 @@ noArg {
     annotation('javax.ws.rs.Path')
 }
 
+war {
+    archiveName 'sportchef-server.war'
+}
+
 dependencies {
+    providedCompile (
+            "javax:javaee-api:$javaeeApiVersion"
+    )
     compile(
             "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion",
             "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
