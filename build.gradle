@@ -41,6 +41,15 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    all {
+        resolutionStrategy.force "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion",
+                "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+        resolutionStrategy.failOnVersionConflict()
+    }
+    detekt
+}
+
 allOpen {
     annotation('javax.ejb.Stateless')
     annotation('javax.ws.rs.Path')
