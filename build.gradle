@@ -60,6 +60,7 @@ dependencies {
     )
     compile(
             "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion",
-            "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+            "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+            "org.litote.kmongo:kmongo:$kmongoVersion"
     )
 }
