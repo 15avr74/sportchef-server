@@ -1,0 +1,27 @@
+language: java
+
+sudo: false
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+cache:
+  directories:
+    - '$HOME/.gradle/caches'
+    - '$HOME/.gradle/wrapper'
+    - '$HOME/.m2/repository'
+
+services:
+  - docker
+
+after_success:
+  - docker build -t sportchef/sportchef-server .
+  - docker login -u $DOCKER_USER -p $DOCKER_PASS
+  - docker push sportchef/sportchef-server
+  - docker logout
+
+env:
+  global:
+  - secure: fzvJcDdSxvsWFGwC+VHRPMbHz/ian48D78YVORqDGxHOnScjt8meDtYohavTz+ypvsQRgClDRhZv5qp/TElh0o22kvI7HxGUQFG/98bxSRASFCxuXeC7yOcbNKTGqDqPlzwm+KrICWfrj/UgwKprgn/aY0EF2XpzB6d0kHp4sCn4L6lR1SrrWSUmUQRsU2gHtoegMkCDojly7Q9rRI/AF4w9gOGVJvI4fYOBAcVTR2qPU0igeH/Qr4t1noRs3AW6YozrVRlAsl+v6zsmZ+eWQl84MdL2lf+diYpRGFlrf49yZsMV+V6TvKysEKi2rtsZ8vNIzE1YB5/YBxUcPIj440wg6lAHpIYbQXTDVd35N2LtEYgqL+cnEofdM0gDgNisufNv38LjLzuc+LTATRgzxdkpYhpXUs2NnLqqVXgZOJuarm/XghbCRO/sLOBdYlhWL+0TqxKE0SpfwXvAxDvo0m2RLcPOYP7gpkBpnA6W/tEMn10+5tSh7hfOj9POudtLXwIJC0NP6ydxL6oInuJrW8Vv8PalhZjoDl5veYgYiWVyqiPvsQz30zOOMva1eKNzahrcH7sVRcB4sgJFXnfC0tkHg7KOIAVHSGgFwcfG2mMmBT4fxwsMZu31melyd5734xMQhIq7yxSniMk3PTZtUOW9p9hdCsKmnLqYGgjvr0w=
+  - secure: kLY/6KoAd5AwBeuBbUgrpevYffDnCNIiPFLHmWCYhtnOlWiCi6JAJpIN52BQI6xvb5Xf2+MsJCKrYpYhQPDWUijoQJdhEgieSjARZm7a0quxJ5fuUKutU+4cPr4eesc3sR/6kBU5PokldK5QUM3wk9+qfOi/UIss5sTQcD5YYoKMCrogsxhvxbJRl22+k47DyVSAyyxAOApV1rx5nXVNIs5WdUWLU1t3l+Pc29pghTKDvOlAbIYLHMC8myTiAD/FqNDgyogsTPSxgBrA5Ft8i3mP6Irj8zsJ25dfba1wg/2nMm6YoeuOxKm0wN/uTJiSldDh6rdWAClVHuMnE1iVfx0w2kP3JWZx3zTNOmdt5BoubWZ19jk6yrEqQ1Iqczy2vRa/jfOLzGRTtMTQxGC5BhgpGFn5R9R1lR7yDJYZ3aqp7YUmB0XZstukTGyPVQuxyk1IlYqpTbMCVzTU4ZwYLBuAGZvV4ebhvyIYckgEvCmAbCeKSVWR5u9wfl7PVMSVfly3q2K6cgAWW/Y9D9h2Ghs1066bLOm/EVw/yILX4MVw6ZgGmptb2bWIc+L+1SDO//DJLsBN0DhHEtTAhryHda05PJWPfvvWyAUb86uGPys+f9Ev+TUDDbobek1rQJ42fr+KhElrZMrh7DDGuKAQ42+RKzIqt8o8Y7sMHr6AX4A=

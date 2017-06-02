@@ -1,7 +1,7 @@
 *SportChef Server*
 ==================
 
-[![gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg)](https://gitmoji.carloscuesta.me)
+[![Build Status](https://travis-ci.org/SportChef/sportchef-server.svg?branch=master)](https://travis-ci.org/SportChef/sportchef-server) [![gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg)](https://gitmoji.carloscuesta.me)
 
 **The backend part of the SportChef system. For more information please take a look at our [project website](https://www.sportchef.ch/).**
 
