@@ -72,4 +72,7 @@ dependencies {
             "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
             "org.litote.kmongo:kmongo:$kmongoVersion"
     )
+    testCompile (
+            "io.kotlintest:kotlintest:$kotlinTestVersion"
+    )
 }
