@@ -21,15 +21,14 @@ import javax.ws.rs.GET
 import javax.ws.rs.Path
 import javax.ws.rs.Produces
 import javax.ws.rs.core.MediaType
-import javax.ws.rs.core.Response
 
 @Path("healthcheck")
 @Produces(MediaType.TEXT_PLAIN)
 class HealthCheckResource {
 
     @GET
-    fun healthCheck(): Response {
-        return Response.ok("up and running").build()
+    fun healthCheck(): String {
+        return "up and running"
     }
 
 }
